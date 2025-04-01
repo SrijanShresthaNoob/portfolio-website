@@ -641,7 +641,7 @@ body {
 .ag-courses-item_bg {
     height: 128px;
     width: 128px;
-    background-color: #83a0b4;
+    background-color: #9ACBD0;
     z-index: 1;
     position: absolute;
     top: -75px;
@@ -666,6 +666,7 @@ body {
     animation: fade-in linear forwards;
     animation-timeline: view();
     animation-range: 20px 150px;
+
 }
 
 .ag-courses_item:nth-child(2n) {
@@ -684,11 +685,11 @@ body {
 }
 
 .ag-courses_item:nth-child(2n) .ag-courses-item_bg {
-    background-color: #85bee9;
+    background-color: #48A6A7;
 }
 
 .ag-courses_item:nth-child(3n) .ag-courses-item_bg {
-    background-color: #6EACDA;
+    background-color: #006A71;
 }
 
 #CardTwo {
