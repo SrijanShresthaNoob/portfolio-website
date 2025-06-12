@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buzzer for quiz</title>
+    <audio src="/assets/truth-detector-buzzer.mp3" id="yes"></audio>
+    <audio src="/assets/wrong-answer-sound-effect(1).mp3" id="no"></audio>
+</head>
+<body>
+    <script>
+        yes = document.getElementById("yes")
+        no = document.getElementById("no")
+        function tru() {
+            yes.play()
+        }
+        function fals() {
+            no.play()
+        }
+
+    </script>
+    <main style="height: 100vh;
+    width: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;">
+        <button class="button" style="width: 50%;
+        border-radius: 50%; height: 50%; background-color: green;" onclick=tru() >YEss!!!!</button>
+        <br>
+        <button class="button" style="width: 50%;
+        border-radius: 50%; height: 50%; background-color: red;" onclick=fals() >Noooooo!!!!!</button>
+    </main>
+    
+</body>
+</html>
