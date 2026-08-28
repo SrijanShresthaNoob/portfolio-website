@@ -1,0 +1,20 @@
+{
+  "name": "Fit Lens — AI Calorie Scanner",
+  "short_name": "Fit Lens",
+  "description": "Free AI-powered calorie scanner for Android. Point your camera at any food to instantly see calories and macros.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#06070b",
+  "theme_color": "#06070b",
+  "categories": ["health", "lifestyle", "utilities"],
+  "icons": [
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
