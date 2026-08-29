@@ -13,11 +13,11 @@
   <link rel="canonical" href="https://fitlens.app/">
 
   <!-- Icons -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" href="/assets/icon-512.png">
+  <link rel="icon" type="image/png" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
-  <!-- Open Graph (Facebook, WhatsApp, LinkedIn, etc.) -->
+  <!-- Open Graph -->
   <meta property="og:site_name" content="Fit Lens">
   <meta property="og:title" content="Fit Lens — Free AI Calorie Scanner for Android">
   <meta property="og:description" content="Point your camera at any food and instantly see its calories and macros. Free AI calorie scanner for Android — no subscription, no account.">
@@ -35,7 +35,7 @@
   <meta name="twitter:description" content="Point your camera at any food to instantly see calories & macros. Free AI calorie scanner for Android.">
   <meta name="twitter:image" content="https://fitlens.app/assets/og-image.png">
 
-  <!-- Structured data: helps Google understand the app & show rich results -->
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -60,11 +60,16 @@
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Android 9.0+",
         "url": "https://fitlens.app/",
-        "downloadUrl": "https://fitlens.app/download/fitlens-1.0.0.apk",
+        "downloadUrl": "https://fitlens.app/download/fitlens.apk",
         "softwareVersion": "1.0.0",
-        "fileSize": "8.4 MB",
         "description": "Fit Lens is a free AI-powered calorie scanner for Android. Point your camera at any food to instantly see calories and macros — no subscription, no account.",
         "image": "https://fitlens.app/assets/og-image.png",
+        "screenshot": [
+          "https://fitlens.app/assets/screen-1.png",
+          "https://fitlens.app/assets/screen-2.png",
+          "https://fitlens.app/assets/screen-3.png",
+          "https://fitlens.app/assets/screen-4.png"
+        ],
         "author": { "@id": "https://fitlens.app/#organization" },
         "publisher": { "@id": "https://fitlens.app/#organization" },
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -74,41 +79,6 @@
           "Protein, carb and fat breakdown",
           "Runs on-device and works offline",
           "Free with no subscription and no account"
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is Fit Lens?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Fit Lens is a free AI-powered calorie scanner for Android. You point your phone's camera at any food — a plate, a snack, or a packaged meal — and Fit Lens recognizes it and instantly estimates the calories along with protein, carbs, and fat." }
-          },
-          {
-            "@type": "Question",
-            "name": "Is Fit Lens really free?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Fit Lens is 100% free to download and use. There is no subscription, no paywall, and no account required." }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I download Fit Lens on Android?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Tap the Download button on this page to get the Fit Lens APK, open it, and allow installation from your browser when prompted. Fit Lens works on Android 9.0 and above. The app is free." }
-          },
-          {
-            "@type": "Question",
-            "name": "Is the Fit Lens APK safe?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Fit Lens APK is scanned with 74 security engines on VirusTotal and returns 0 detections. You can view the full VirusTotal report and verify the SHA-256 checksum on this page." }
-          },
-          {
-            "@type": "Question",
-            "name": "Does Fit Lens work offline?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Fit Lens runs its food recognition on-device, so it works without an internet connection and your photos stay private on your phone." }
-          },
-          {
-            "@type": "Question",
-            "name": "Do I need to create an account to use Fit Lens?",
-            "acceptedAnswer": { "@type": "Answer", "text": "No account is needed. Install Fit Lens, open it, and start scanning food right away." }
-          }
         ]
       }
     ]
@@ -125,18 +95,7 @@
   </div>
 
   <div class="brand" id="top">
-    <span class="brand__icon" aria-hidden="true">
-      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
-        <!-- viewfinder corners -->
-        <path d="M16 7 h-9 v9"/>
-        <path d="M48 7 h9 v9"/>
-        <path d="M57 48 v9 h-9"/>
-        <path d="M16 57 h-9 v-9"/>
-        <!-- lens -->
-        <circle cx="32" cy="32" r="13.5"/>
-        <circle cx="32" cy="32" r="4.5" fill="currentColor" stroke="none"/>
-      </svg>
-    </span>
+    <img class="brand__logo" src="assets/logo.png" alt="Fit Lens logo" width="128" height="128">
     <h1 class="brand__name">Fit <span class="b-green">Lens</span></h1>
     <p class="brand__tag">AI Calorie Scanner</p>
   </div>
@@ -149,201 +108,185 @@
   </header>
 
   <nav class="nav" id="download">
-    <a class="button" href="download/fitlens-1.0.0.apk" download="fitlens-1.0.0.apk" aria-label="Download Fit Lens for Android">
+    <a class="button" href="download/fitlens.apk" download="fitlens.apk" aria-label="Download Fit Lens for Android">
       <svg viewBox="0 0 32 32" aria-hidden="true">
         <path d="m9.47363 4.01687c.77167.00015 1.39727.62585 1.39747 1.39747 0 .7718-.6257 1.39829-1.39747 1.39843h-4.625c-.66518.00006-1.17367.17068-1.52539.5127-.34225.34225-.51364.86071-.51367 1.55469v14.24194c0 .694.17139 1.2124.51367 1.5547.35173.3517.86001.5282 1.52539.5283h22.28807c.6561 0 1.1599-.1766 1.5117-.5283.3613-.3423.542-.8607.542-1.5547v-14.24194c0-.69398-.1807-1.21244-.542-1.55469-.3517-.34214-.8558-.5127-1.5117-.5127h-4.624c-.7719 0-1.3984-.62654-1.3984-1.39843.0002-.77171.6266-1.39747 1.3984-1.39747h4.8096c1.5402.00002 2.705.3903 3.4941 1.16993.789.77963 1.1836 1.93518 1.1836 3.46582v14.71258c0 1.5305-.3947 2.6853-1.1836 3.4649-.7891.7796-1.9539 1.1699-3.4941 1.1699h-22.64457c-1.54021 0-2.70501-.3903-3.49414-1.1699-.788897-.7796-1.18354196-1.9344-1.18359-3.4649v-14.71258c0-1.53064.394563-2.68619 1.18359-3.46582.78913-.77963 1.95393-1.16991 3.49414-1.16993z"/>
         <path d="m16.0078 0c.3832.00006.7111.13601.9834.4082.2825.27241.4238.59089.4238.9541v14.2481l-.1211 2.2548.8018-.9687 2.1494-2.2998c.2522-.2825.5652-.4238.9385-.4238.3429 0 .6358.1156.8779.3476.2522.2321.378.5203.378.8633-.0001.3328-.1314.6359-.3936.9082l-4.9785 4.7969c-.1816.1715-.3588.2926-.5303.3632-.1714.0706-.3478.1065-.5293.1065-.1816 0-.3587-.0358-.5303-.1065-.1714-.0706-.3533-.1918-.5449-.3632l-4.9639-4.7969c-.2723-.2723-.4081-.5754-.4082-.9082 0-.343.1212-.6312.3633-.8633.2421-.2319.535-.3476.878-.3476.3932 0 .7109.1413.9531.4238l2.164 2.2998.8028.9687-.1211-2.2548v-14.2481c0-.36321.1358-.68169.4082-.9541.2824-.27226.6157-.4082.999-.4082z"/>
       </svg>
       <span>Download</span>
     </a>
+
+    <button class="button button--ghost" type="button" id="instructions-btn" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M12 11v5"/><path d="M12 7.6h.01"/>
+      </svg>
+      <span>Instructions</span>
+    </button>
   </nav>
+
+  <dialog class="guide" id="guide" aria-labelledby="guide-title">
+    <div class="guide__head">
+      <h3 id="guide-title">How to install Fit Lens</h3>
+      <button class="guide__close" type="button" id="guide-close" aria-label="Close instructions">✕</button>
+    </div>
+    <div class="guide__body">
+      <p class="lead">Fit Lens ships as an Android APK (it isn't on the Play Store yet).
+         Installing takes about 30 seconds.</p>
+      <ol class="guide__steps">
+        <li>Tap <strong>Download</strong> to get <strong>fitlens.apk</strong>.</li>
+        <li>Open the file from your notifications or your <strong>Downloads</strong> folder.</li>
+        <li>If Android asks, allow your browser or file manager to <strong>install from this source</strong>.</li>
+        <li>Tap <strong>Install</strong>, then <strong>Open</strong> — and start scanning food.</li>
+      </ol>
+      <p class="guide__note"><strong>Heads up:</strong> Android shows a generic "unknown source"
+         warning for every APK outside the Play Store. The Fit Lens file is verified
+         <strong>0/74 on VirusTotal</strong> — see the report below.</p>
+    </div>
+  </dialog>
 
   <div class="meta">
     <p class="meta__row">
       <span>v1.0.0</span><i aria-hidden="true">·</i>
       <span>Android 9.0+</span><i aria-hidden="true">·</i>
-      <span>8.4&nbsp;MB</span><i aria-hidden="true">·</i>
       <span class="free">100% free</span>
     </p>
   </div>
 
   <main class="main">
-    <section class="features" aria-labelledby="features-title">
-      <h2 class="sec-title" id="features-title">Why Fit Lens</h2>
-      <ul class="feature-grid">
-        <li>
-          <strong>Point &amp; scan</strong>
-          <span>Fit Lens AI recognizes the food from a single photo — no searching, no typing.</span>
-        </li>
-        <li>
-          <strong>Instant calories</strong>
-          <span>See an estimated calorie count the moment the shutter closes.</span>
-        </li>
-        <li>
-          <strong>Full macros</strong>
-          <span>Protein, carbs and fat broken down for every plate you scan.</span>
-        </li>
-        <li>
-          <strong>On-device &amp; private</strong>
-          <span>Recognition runs on your phone, works offline, and your photos stay private.</span>
-        </li>
-        <li>
-          <strong>Always free</strong>
-          <span>No subscription, no paywall, no account — download Fit Lens and start scanning.</span>
-        </li>
-        <li>
-          <strong>Lightweight</strong>
-          <span>About 8.4&nbsp;MB and runs on Android 9.0 and above.</span>
-        </li>
-      </ul>
+
+    <!-- App screenshots, swipeable -->
+    <section class="showcase" aria-labelledby="showcase-title">
+      <h2 class="sec-title" id="showcase-title">See it in action</h2>
+      <p class="sec-sub">Point. Scan. Get the calories and macros in seconds.
+         Swipe through the app.</p>
+
+      <div class="carousel-wrap">
+        <div class="carousel" id="carousel" tabindex="0" aria-label="Fit Lens app screenshots — swipe or use arrows"></div>
+
+        <button class="carousel__arrow carousel__arrow--prev" type="button" aria-label="Previous screenshot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="carousel__arrow carousel__arrow--next" type="button" aria-label="Next screenshot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <div class="carousel__dots" id="carousel-dots" role="tablist" aria-label="Choose screenshot"></div>
     </section>
 
+    <!-- Security / VirusTotal -->
     <section class="security" aria-labelledby="security-title">
       <h2 class="sec-title" id="security-title">Verified 100% safe on VirusTotal</h2>
-      <p class="sec-sub">Every Fit Lens release is scanned by 74 security engines before you
-         download it. The result: 0 detections. Tap through to inspect the full report.</p>
+      <p class="sec-sub">Every Fit Lens release is scanned by 74 security engines before
+         you download it. The result: 0 detections. Tap the link to inspect the full,
+         live report.</p>
 
-    <div class="terminal">
-      <div class="terminal__bar">
-        <span class="terminal__dots" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span class="terminal__title">scan@fitlens: ~/downloads</span>
-      </div>
-
-      <div class="terminal__body">
-        <p class="line">
-          <span class="ps1">➜</span>
-          <span class="path">~/downloads</span>
-          <span class="cmd-text">virustotal fitlens-1.0.0.apk</span>
-        </p>
-
-        <dl class="kv">
-          <dt>file</dt><dd>fitlens-1.0.0.apk</dd>
-          <dt>size</dt><dd>8.4 MB (8,412,672 bytes)</dd>
-          <dt>sha256</dt><dd>18c06b90…26bb22ef</dd>
-          <dt>engines</dt><dd>74 security vendors</dd>
-        </dl>
-
-        <p class="progress">
-          <span class="progress__bar">[██████████████████████████████]</span>
-          <span class="progress__pct">100%</span>
-        </p>
-
-        <div class="verdict">
-          <span class="verdict__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M8 12.5l2.6 2.6L16 9.5"/>
-            </svg>
-          </span>
-          <span class="verdict__main">
-            <span class="verdict__title">0 / 74 detections — 100% safe</span><br>
-            <span class="verdict__sub">No security vendor flagged this file.</span>
-          </span>
+      <div class="terminal">
+        <div class="terminal__bar">
+          <span class="terminal__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="terminal__title">scan@fitlens: ~/downloads</span>
         </div>
 
-        <p class="line">
-          <span class="ps1">➜</span>
-          <span class="path">~/downloads</span>
-          <span class="cmd-text">virustotal engines --clean</span>
-        </p>
+        <div class="terminal__body">
+          <p class="line">
+            <span class="ps1">➜</span>
+            <span class="path">~/downloads</span>
+            <span class="cmd-text">virustotal fitlens.apk</span>
+          </p>
 
-        <ul class="engines">
-          <li><span class="name">Avast</span><span class="leader"></span><span class="ok">clean</span></li>
-          <li><span class="name">AVG</span><span class="leader"></span><span class="ok">clean</span></li>
-          <li><span class="name">Avira</span><span class="leader"></span><span class="ok">clean</span></li>
-          <li><span class="name">BitDefender</span><span class="leader"></span><span class="ok">clean</span></li>
-          <li><span class="name">ESET-NOD32</span><span class="leader"></span><span class="ok">clean</span></li>
-          <li><span class="name">Kaspersky</span><span class="leader"></span><span class="ok">clean</span></li>
-          <li><span class="name">Malwarebytes</span><span class="leader"></span><span class="ok">clean</span></li>
-          <li><span class="name">Microsoft</span><span class="leader"></span><span class="ok">clean</span></li>
-          <li><span class="name">Norton</span><span class="leader"></span><span class="ok">clean</span></li>
-          <li><span class="name">Sophos</span><span class="leader"></span><span class="ok">clean</span></li>
-          <li><span class="name">F-Secure</span><span class="leader"></span><span class="ok">clean</span></li>
-          <li><span class="name">G-Data</span><span class="leader"></span><span class="ok">clean</span></li>
-          <li><span class="name">Google</span><span class="leader"></span><span class="ok">clean</span></li>
-          <li><span class="name">TrendMicro</span><span class="leader"></span><span class="ok">clean</span></li>
-          <li><span class="name">Fortinet</span><span class="leader"></span><span class="ok">clean</span></li>
-          <li><span class="name">McAfee</span><span class="leader"></span><span class="ok">clean</span></li>
-          <li><span class="name">Panda</span><span class="leader"></span><span class="ok">clean</span></li>
-          <li><span class="name">ClamAV</span><span class="leader"></span><span class="ok">clean</span></li>
-        </ul>
-        <p class="engines__note">… and 56 more engines — all clean, zero detections.</p>
+          <dl class="kv">
+            <dt>file</dt><dd>Fit Lens — Android APK</dd>
+            <dt>sha256</dt><dd>156fb912…d16dc306</dd>
+            <dt>engines</dt><dd>74 security vendors</dd>
+          </dl>
 
-        <p class="line">
-          <span class="ps1">➜</span>
-          <span class="path">~/downloads</span>
-          <span class="cmd-text">virustotal report</span>
-        </p>
+          <p class="progress">
+            <span class="progress__bar">[██████████████████████████████]</span>
+            <span class="progress__pct">100%</span>
+          </p>
 
-        <p class="hash">
-          <span class="k">sha256</span>
-          <code id="sha">18c06b909e3e579eac5e722ad97cd78133ee16c9e0707866d3a4e43126bb22ef</code>
-          <button class="hash__copy" id="copy-sha" type="button" aria-label="Copy SHA-256 hash">copy</button>
-        </p>
+          <div class="verdict">
+            <span class="verdict__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M8 12.5l2.6 2.6L16 9.5"/>
+              </svg>
+            </span>
+            <span class="verdict__main">
+              <span class="verdict__title">0 / 74 detections — 100% safe</span><br>
+              <span class="verdict__sub">No security vendor flagged this file.</span>
+            </span>
+          </div>
 
-        <p class="out">
-          <a class="report-link" href="https://www.virustotal.com/gui/file/18c06b909e3e579eac5e722ad97cd78133ee16c9e0707866d3a4e43126bb22ef" target="_blank" rel="noopener">
-            https://virustotal.com/gui/file/18c06b90…26bb22ef
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg>
-          </a>
-        </p>
+          <p class="line">
+            <span class="ps1">➜</span>
+            <span class="path">~/downloads</span>
+            <span class="cmd-text">virustotal engines --clean</span>
+          </p>
 
-        <p class="line">
-          <span class="ps1">➜</span>
-          <span class="path">~/downloads</span>
-          <span class="cursor" aria-hidden="true"></span>
-        </p>
+          <ul class="engines">
+            <li><span class="name">Avast</span><span class="leader"></span><span class="ok">clean</span></li>
+            <li><span class="name">AVG</span><span class="leader"></span><span class="ok">clean</span></li>
+            <li><span class="name">Avira</span><span class="leader"></span><span class="ok">clean</span></li>
+            <li><span class="name">BitDefender</span><span class="leader"></span><span class="ok">clean</span></li>
+            <li><span class="name">ESET-NOD32</span><span class="leader"></span><span class="ok">clean</span></li>
+            <li><span class="name">Kaspersky</span><span class="leader"></span><span class="ok">clean</span></li>
+            <li><span class="name">Malwarebytes</span><span class="leader"></span><span class="ok">clean</span></li>
+            <li><span class="name">Microsoft</span><span class="leader"></span><span class="ok">clean</span></li>
+            <li><span class="name">Norton</span><span class="leader"></span><span class="ok">clean</span></li>
+            <li><span class="name">Sophos</span><span class="leader"></span><span class="ok">clean</span></li>
+            <li><span class="name">F-Secure</span><span class="leader"></span><span class="ok">clean</span></li>
+            <li><span class="name">G-Data</span><span class="leader"></span><span class="ok">clean</span></li>
+            <li><span class="name">Google</span><span class="leader"></span><span class="ok">clean</span></li>
+            <li><span class="name">TrendMicro</span><span class="leader"></span><span class="ok">clean</span></li>
+            <li><span class="name">Fortinet</span><span class="leader"></span><span class="ok">clean</span></li>
+            <li><span class="name">McAfee</span><span class="leader"></span><span class="ok">clean</span></li>
+            <li><span class="name">Panda</span><span class="leader"></span><span class="ok">clean</span></li>
+            <li><span class="name">ClamAV</span><span class="leader"></span><span class="ok">clean</span></li>
+          </ul>
+          <p class="engines__note">… and 56 more engines — all clean, zero detections.</p>
+
+          <p class="line">
+            <span class="ps1">➜</span>
+            <span class="path">~/downloads</span>
+            <span class="cmd-text">virustotal report</span>
+          </p>
+
+          <p class="hash">
+            <span class="k">sha256</span>
+            <code id="sha">156fb912cacedd63b8a06e9ad62b3fcb322079351c3252deffd24f74d16dc306</code>
+            <button class="hash__copy" id="copy-sha" type="button" aria-label="Copy SHA-256 hash">copy</button>
+          </p>
+
+          <p class="out">
+            <a class="report-link" href="https://www.virustotal.com/gui/file/156fb912cacedd63b8a06e9ad62b3fcb322079351c3252deffd24f74d16dc306?nocache=1" target="_blank" rel="noopener">
+              https://virustotal.com/gui/file/156fb912…d16dc306
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg>
+            </a>
+          </p>
+
+          <p class="line">
+            <span class="ps1">➜</span>
+            <span class="path">~/downloads</span>
+            <span class="cursor" aria-hidden="true"></span>
+          </p>
+        </div>
       </div>
-    </div>
-    </section>
-
-    <section class="faq" aria-labelledby="faq-title">
-      <h2 class="sec-title" id="faq-title">Frequently asked questions</h2>
-      <details class="faq__item">
-        <summary>What is Fit Lens?</summary>
-        <p>Fit Lens is a free AI-powered calorie scanner for Android. Point your phone's camera at
-           any food — a plate, a snack, or a packaged meal — and Fit Lens recognizes it and instantly
-           estimates the calories along with protein, carbs, and fat.</p>
-      </details>
-      <details class="faq__item">
-        <summary>Is Fit Lens really free?</summary>
-        <p>Yes. Fit Lens is 100% free to download and use. There is no subscription, no paywall, and
-           no account required.</p>
-      </details>
-      <details class="faq__item">
-        <summary>How do I download Fit Lens on Android?</summary>
-        <p>Tap the <a href="#download">Download</a> button at the top of this page to get the Fit Lens
-           APK, open it, and allow installation from your browser when prompted. Fit Lens works on
-           Android 9.0 and above, and it is free.</p>
-      </details>
-      <details class="faq__item">
-        <summary>Is the Fit Lens APK safe?</summary>
-        <p>Yes. The Fit Lens APK is scanned with 74 security engines on VirusTotal and returns
-           0 detections. You can view the <a href="https://www.virustotal.com/gui/file/18c06b909e3e579eac5e722ad97cd78133ee16c9e0707866d3a4e43126bb22ef" target="_blank" rel="noopener">full VirusTotal report</a>
-           and verify the SHA-256 checksum in the terminal above.</p>
-      </details>
-      <details class="faq__item">
-        <summary>Does Fit Lens work offline?</summary>
-        <p>Fit Lens runs its food recognition on-device, so it works without an internet connection
-           and your photos stay private on your phone.</p>
-      </details>
-      <details class="faq__item">
-        <summary>Do I need an account to use Fit Lens?</summary>
-        <p>No account is needed. Install Fit Lens, open it, and start scanning food right away.</p>
-      </details>
     </section>
   </main>
 
   <footer class="footer">
     <div class="footer__links">
       <a href="#download">Download</a>
-      <a href="https://www.virustotal.com/gui/file/18c06b909e3e579eac5e722ad97cd78133ee16c9e0707866d3a4e43126bb22ef" target="_blank" rel="noopener">VirusTotal report</a>
+      <a href="https://www.virustotal.com/gui/file/156fb912cacedd63b8a06e9ad62b3fcb322079351c3252deffd24f74d16dc306?nocache=1" target="_blank" rel="noopener">VirusTotal report</a>
     </div>
     <p>Fit Lens is free, on-device AI for everyday nutrition.<br>
        © 2026 Fit Lens AI Corporation — point. scan. eat smart.</p>
   </footer>
 
   <script>
+    // ---- Copy SHA-256 ----
     document.getElementById('copy-sha').addEventListener('click', function () {
       var hash = document.getElementById('sha').textContent.trim();
       var btn = this;
@@ -352,6 +295,128 @@
         setTimeout(function () { btn.textContent = 'copy'; }, 1600);
       }).catch(function () {});
     });
+
+    // ---- Install instructions dialog ----
+    (function () {
+      var dlg = document.getElementById('guide');
+      var openBtn = document.getElementById('instructions-btn');
+      var closeBtn = document.getElementById('guide-close');
+      openBtn.addEventListener('click', function () {
+        if (typeof dlg.showModal === 'function') dlg.showModal();
+        else dlg.setAttribute('open', '');
+      });
+      closeBtn.addEventListener('click', function () { dlg.close(); });
+      dlg.addEventListener('click', function (e) {
+        if (e.target === dlg) dlg.close();
+      });
+    })();
+
+    // ---- App screenshots carousel ----
+    // TO USE YOUR OWN SCREENSHOTS: drop numbered images into the /screenshots
+    // folder and add/list them here (one line per image). Missing images are
+    // skipped automatically.
+    var SCREENS = [
+      { src: 'screenshots/1.png', alt: 'Fit Lens scanning a cheeseburger with fries and showing 542 calories with macros' },
+      { src: 'screenshots/2.png', alt: 'Fit Lens scanning a grilled chicken salad and showing 310 calories with macros' },
+      { src: 'screenshots/3.png', alt: 'Fit Lens scanning a stack of berry pancakes and showing 478 calories with macros' },
+      { src: 'screenshots/4.png', alt: 'The Fit Lens weekly log showing scanned meals and total calories' }
+    ];
+
+    (function () {
+      var car = document.getElementById('carousel');
+      var dotsWrap = document.getElementById('carousel-dots');
+      var prev = document.querySelector('.carousel__arrow--prev');
+      var next = document.querySelector('.carousel__arrow--next');
+      var items = [];
+      var dots = [];
+
+      function build() {
+        SCREENS.forEach(function (s, i) {
+          var fig = document.createElement('figure');
+          fig.className = 'carousel__item';
+          var img = document.createElement('img');
+          img.src = s.src;
+          img.alt = s.alt;
+          img.draggable = false;
+          img.loading = 'lazy';
+          img.onerror = function () { fig.style.display = 'none'; };
+          fig.appendChild(img);
+          car.appendChild(fig);
+          items.push(fig);
+
+          var dot = document.createElement('button');
+          dot.type = 'button';
+          dot.setAttribute('aria-label', 'Screenshot ' + (i + 1));
+          dotsWrap.appendChild(dot);
+          dots.push(dot);
+        });
+      }
+      build();
+      if (!items.length) return;
+
+      function currentIndex() {
+        var cx = car.scrollLeft + car.clientWidth / 2;
+        var best = 0, bd = Infinity;
+        items.forEach(function (it, i) {
+          if (it.style.display === 'none') return;
+          var c = it.offsetLeft + it.offsetWidth / 2;
+          if (Math.abs(c - cx) < bd) { bd = Math.abs(c - cx); best = i; }
+        });
+        return best;
+      }
+      function goTo(i) {
+        i = Math.max(0, Math.min(items.length - 1, i));
+        var target = items[i].offsetLeft - (car.clientWidth - items[i].offsetWidth) / 2;
+        car.scrollTo({ left: target, behavior: 'smooth' });
+      }
+      function update() {
+        var i = currentIndex();
+        items.forEach(function (it, k) { it.classList.toggle('is-active', k === i); });
+        dots.forEach(function (d, k) {
+          d.classList.toggle('is-active', k === i);
+        });
+        prev.disabled = i === 0;
+        next.disabled = i === items.length - 1;
+      }
+
+      next.addEventListener('click', function () { goTo(currentIndex() + 1); });
+      prev.addEventListener('click', function () { goTo(currentIndex() - 1); });
+      dots.forEach(function (d, i) { d.addEventListener('click', function () { goTo(i); }); });
+      car.addEventListener('scroll', function () { requestAnimationFrame(update); }, { passive: true });
+
+      // Mouse drag-to-scroll (desktop). Touch uses native pan-x + snap.
+      var down = false, startX = 0, startLeft = 0, moved = false;
+      car.addEventListener('pointerdown', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        down = true; moved = false;
+        startX = e.clientX; startLeft = car.scrollLeft;
+        car.classList.add('is-dragging');
+        try { car.setPointerCapture(e.pointerId); } catch (err) {}
+      });
+      car.addEventListener('pointermove', function (e) {
+        if (!down) return;
+        var dx = e.clientX - startX;
+        if (Math.abs(dx) > 4) moved = true;
+        car.scrollLeft = startLeft - dx;
+      });
+      function endDrag() {
+        if (!down) return;
+        down = false;
+        car.classList.remove('is-dragging');
+        if (moved) { goTo(currentIndex()); }
+      }
+      car.addEventListener('pointerup', endDrag);
+      car.addEventListener('pointercancel', endDrag);
+
+      car.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') { e.preventDefault(); goTo(currentIndex() + 1); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(currentIndex() - 1); }
+      });
+
+      // start on the first slide
+      requestAnimationFrame(function () { items[0].classList.add('is-active'); update(); });
+      window.addEventListener('resize', update);
+    })();
   </script>
 </body>
 </html>

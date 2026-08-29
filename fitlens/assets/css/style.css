@@ -52,6 +52,11 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 html {
   font-size: 16px;
   scroll-behavior: smooth;
@@ -61,6 +66,7 @@ html {
 
 body {
   margin: 0;
+  width: 100%;
   background: var(--color-background);
   color: var(--color-white);
   display: flex;
@@ -72,6 +78,8 @@ body {
   font-weight: 300;
   line-height: var(--line-height);
 }
+
+img { max-width: 100%; height: auto; }
 
 a {
   color: var(--color-cyan);
@@ -119,23 +127,14 @@ img, svg { display: block; }
   text-align: center;
 }
 
-.brand__icon {
-  width: 4.6em;
-  height: 4.6em;
-  border-radius: 1.05em;
-  background: rgb(var(--rgb-green) / 0.08);
-  border: var(--border-width) solid rgb(var(--rgb-green) / 0.35);
-  display: grid;
-  place-items: center;
+.brand__logo {
+  width: clamp(5.4em, 22vw, 7.5em);
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 24%;
   box-shadow:
-    0 0 0 0.4em rgb(var(--rgb-green) / 0.04),
-    0 0.6em 2.2em -0.8em rgb(var(--rgb-green) / 0.35);
-}
-
-.brand__icon svg {
-  width: 62%;
-  height: 62%;
-  color: var(--color-green);
+    0 0 0 1px rgb(var(--rgb-white) / 0.08),
+    0 1.4em 2.6em -1.2em rgb(var(--rgb-black) / 0.9);
 }
 
 .brand__name {
@@ -172,8 +171,6 @@ img, svg { display: block; }
   padding-inline: var(--space-large);
   text-align: center;
 }
-
-.header { margin-top: var(--space-large); }
 
 .header__title {
   margin: 0;
@@ -247,6 +244,21 @@ img, svg { display: block; }
 
 .button:active { transform: translateY(0); }
 
+.button--ghost {
+  background: transparent;
+  color: var(--color-white);
+  border: var(--border-width) solid rgb(139, 150, 198 / 0.55);
+  box-shadow: none;
+  font-family: inherit;
+}
+@media (hover: hover) {
+  .button--ghost:hover {
+    background: transparent;
+    color: var(--color-turquoise);
+    border-color: var(--color-turquoise);
+  }
+}
+
 /* Build metadata */
 .meta {
   margin-top: var(--space-large);
@@ -278,10 +290,13 @@ img, svg { display: block; }
 /* ---------------------------------------------------------- */
 .main {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   margin-top: var(--space-xxx-large);
   margin-bottom: var(--space-xx-large);
   padding-inline: var(--space-large);
 }
+
+.main > section { min-width: 0; }
 
 .terminal {
   width: min(100%, 44em);
@@ -497,16 +512,10 @@ img, svg { display: block; }
 @keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
 
 /* ---------------------------------------------------------- */
-/* Content sections: features & FAQ                            */
+/* Section headings                                            */
 /* ---------------------------------------------------------- */
-.features,
-.faq {
-  width: min(100%, 46em);
-  margin-inline: auto;
-}
-
 .sec-title {
-  margin: 0 0 var(--space-large);
+  margin: 0 0 var(--space-medium);
   text-align: center;
   font-size: var(--font-size-medium);
   font-weight: 700;
@@ -523,74 +532,205 @@ img, svg { display: block; }
   text-wrap: pretty;
 }
 
-.feature-grid {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* ---------------------------------------------------------- */
+/* Swipeable app screenshots                                   */
+/* ---------------------------------------------------------- */
+.showcase { width: min(100%, 30em); margin-inline: auto; }
+
+.carousel-wrap {
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-medium);
+  place-items: center;
 }
-.feature-grid li {
+
+.carousel {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  padding: 1.4em 12% 1.6em;   /* side peek for neighbours */
+  scroll-padding-inline: 12%;
+  outline: none;
+  cursor: grab;
+}
+.carousel.is-dragging { cursor: grabbing; scroll-behavior: auto; }
+.carousel::-webkit-scrollbar { display: none; }
+
+.carousel__item {
+  flex: 0 0 76%;
+  margin: 0;
+  scroll-snap-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: opacity var(--transition), transform var(--transition), filter var(--transition);
+}
+.carousel__item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 300 / 624;
+  object-fit: contain;
+  border-radius: 1.8em;
+  pointer-events: none;
+  box-shadow:
+    0 0 0 1px rgb(var(--rgb-white) / 0.06),
+    0 1.6em 3em -1.4em rgb(var(--rgb-black) / 0.95);
+  transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* inactive (neighbour) slides are faded & slightly scaled back */
+.carousel__item:not(.is-active) {
+  opacity: 0.35;
+  transform: scale(0.9);
+}
+.carousel__item.is-active img { transform: translateY(-0.2em); }
+
+/* arrows — always visible, over the peeking slides */
+.carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 2.9em;
+  height: 2.9em;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgb(17, 20, 29);
   border: var(--border-width) solid var(--border-color);
-  border-radius: 0.5em;
-  padding: 1em 1.2em;
-  background: rgb(var(--rgb-black) / 0.35);
-}
-.feature-grid strong {
-  display: block;
-  color: var(--color-green);
-  font-weight: 700;
-  margin-bottom: 0.35em;
-}
-.feature-grid strong::before { content: "› "; color: var(--color-cyan); }
-.feature-grid span { color: rgb(var(--rgb-white) / 0.78); }
-
-.security { margin-top: var(--space-xxx-large); }
-
-.faq { margin-top: var(--space-xxx-large); }
-
-.faq__item {
-  border: var(--border-width) solid var(--border-color);
-  border-radius: 0.5em;
-  margin-bottom: 0.7em;
-  background: rgb(var(--rgb-black) / 0.35);
-  overflow: hidden;
-}
-.faq__item summary {
-  cursor: pointer;
-  padding: 0.95em 1.2em;
-  font-weight: 700;
   color: var(--color-white);
-  list-style: none;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 0.6em 1.6em -0.4em rgb(var(--rgb-black) / 0.9);
+  transition: background var(--transition), color var(--transition), border-color var(--transition), opacity var(--transition);
+}
+.carousel__arrow svg { width: 1.25em; height: 1.25em; }
+.carousel__arrow--prev { left: 2%; }
+.carousel__arrow--next { right: 2%; }
+.carousel__arrow:disabled { opacity: 0.28; cursor: default; }
+@media (hover: hover) {
+  .carousel__arrow:hover:not(:disabled) { background: var(--color-blue); color: #0a0c14; border-color: var(--color-blue); }
+}
+
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.7em;
+  margin-top: 0.5em;
+}
+.carousel__dots button {
+  width: 0.55em;
+  height: 0.55em;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(65, 72, 104);
+  cursor: pointer;
+  transition: background var(--transition), width var(--transition);
+}
+.carousel__dots button.is-active {
+  background: var(--color-green);
+  width: 1.5em;
+  border-radius: 0.3em;
+}
+
+@media (min-width: 40em) {
+  .carousel__item { flex-basis: 44%; }
+  .carousel { padding: 1.4em 28% 1.6em; scroll-padding-inline: 28%; }
+}
+
+/* security block */
+.security { width: min(100%, 44em); margin: var(--space-xxxx-large) auto 0; }
+
+/* ---------------------------------------------------------- */
+/* Install instructions dialog                                 */
+/* ---------------------------------------------------------- */
+dialog.guide {
+  width: min(100%, 26em);
+  max-width: calc(100vw - 2em);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: 0.8em;
+  background: #0b0e15;
+  color: var(--color-white);
+  padding: 0;
+  box-shadow: 0 2.4em 6em -2em rgb(var(--rgb-black) / 0.95);
+}
+dialog.guide::backdrop {
+  background: rgb(2, 3, 6 / 0.82);
+}
+.guide__head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1em;
-  transition: color var(--transition);
+  padding: 1.1em 1.2em;
+  border-bottom: var(--border-width) solid var(--border-color);
 }
-.faq__item summary::-webkit-details-marker { display: none; }
-.faq__item summary::after {
-  content: "+";
+.guide__head h3 {
+  margin: 0;
+  font-size: var(--font-size-medium);
+  font-weight: 700;
+}
+.guide__close {
+  flex: none;
+  width: 2em;
+  height: 2em;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: none;
+  border: var(--border-width) solid var(--border-color);
+  color: var(--color-dim);
+  font-size: 1.1em;
+  line-height: 1;
+  cursor: pointer;
+  font-family: inherit;
+}
+@media (hover: hover) {
+  .guide__close:hover { color: var(--color-turquoise); border-color: var(--color-turquoise); }
+}
+.guide__body { padding: 1.2em; font-size: var(--font-size-small); }
+.guide__body p.lead { margin: 0 0 1.1em; color: var(--color-dim); }
+.guide__steps { list-style: none; margin: 0 0 1.2em; padding: 0; display: grid; gap: 0.9em; counter-reset: step; }
+.guide__steps li {
+  position: relative;
+  padding-left: 2.6em;
+  min-height: 1.9em;
+  color: rgb(var(--rgb-white) / 0.85);
+}
+.guide__steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  width: 1.8em;
+  height: 1.8em;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgb(var(--rgb-green) / 0.12);
+  border: var(--border-width) solid rgb(var(--rgb-green) / 0.4);
   color: var(--color-green);
   font-weight: 700;
-  flex: none;
-  font-size: 1.2em;
-  line-height: 1;
 }
-.faq__item[open] summary::after { content: "\2212"; }
-.faq__item[open] summary { color: var(--color-cyan); }
-.faq__item p {
+.guide__note {
   margin: 0;
-  padding: 0 1.2em 1.15em;
-  color: rgb(var(--rgb-white) / 0.75);
-  text-wrap: pretty;
+  padding: 0.9em 1em;
+  border-radius: 0.5em;
+  background: rgb(var(--rgb-blue) / 0.08);
+  border: var(--border-width) solid rgb(var(--rgb-blue) / 0.35);
+  color: rgb(var(--rgb-white) / 0.8);
+  font-size: 90%;
 }
-.faq__item a { color: var(--color-cyan); }
+.guide__note strong { color: var(--color-cyan); }
 
-@media (min-width: 40em) {
-  .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
+/* ---------------------------------------------------------- */
+/* Footer                                                      */
+/* ---------------------------------------------------------- */
 
 /* ---------------------------------------------------------- */
 /* Footer                                                      */
